@@ -38,7 +38,26 @@ export class TodoApp extends React.Component<{}, {}> {
         return (
             <div>
                 <TodoListComponent/>
+                <hr />
+                <TodoFormComponent />
             </div>
+        )
+    }
+}
+
+//---------------------------
+// TODOの入力フォーム
+//---------------------------
+class TodoFormComponent extends React.Component<{}, {}> {
+    private handleSubmit(e: React.SyntheticEvent<HTMLLinkElement>) {
+        console.log("TodoFormComponent.handleSubmit")
+    }
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit.bind(this)}>
+                <input type='text' ref='text' />
+                <input type='submit' value='追加' />
+            </form>
         )
     }
 }

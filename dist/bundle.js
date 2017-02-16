@@ -9498,11 +9498,31 @@ var TodoApp = (function (_super) {
     }
     TodoApp.prototype.render = function () {
         return (React.createElement("div", null,
-            React.createElement(TodoListComponent, null)));
+            React.createElement(TodoListComponent, null),
+            React.createElement("hr", null),
+            React.createElement(TodoFormComponent, null)));
     };
     return TodoApp;
 }(React.Component));
 exports.TodoApp = TodoApp;
+//---------------------------
+// TODOの入力フォーム
+//---------------------------
+var TodoFormComponent = (function (_super) {
+    __extends(TodoFormComponent, _super);
+    function TodoFormComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TodoFormComponent.prototype.handleSubmit = function (e) {
+        console.log("TodoFormComponent.handleSubmit");
+    };
+    TodoFormComponent.prototype.render = function () {
+        return (React.createElement("form", { onSubmit: this.handleSubmit.bind(this) },
+            React.createElement("input", { type: 'text', ref: 'text' }),
+            React.createElement("input", { type: 'submit', value: '追加' })));
+    };
+    return TodoFormComponent;
+}(React.Component));
 
 
 /***/ }),
